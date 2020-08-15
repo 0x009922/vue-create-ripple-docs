@@ -1,3 +1,4 @@
 module.exports = {
-  base: process.env.PUBLIC_PATH || '/'
+  base: process.env.PUBLIC_PATH || '/',
+  assetsDir: 'assets'
 }
