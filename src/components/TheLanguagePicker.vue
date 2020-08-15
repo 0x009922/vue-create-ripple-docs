@@ -1,0 +1,39 @@
+<template>
+  <div class="fixed right-0 top-0 p-4 select-none z-10">
+    <select
+      v-model="model"
+      class="p-1 uppercase elevation-2 rounded"
+    >
+      <option
+        v-for="op in options"
+        :value="op"
+      >{{ op }}</option>
+    </select> 
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref, PropType, computed } from "vue";
+
+export default defineComponent({
+  emits: ['update:value'],
+  props: {
+    value: {
+      type: String,
+      default: null
+    },
+    options: {
+      type: Array as PropType<string[]>,
+      required: true
+    }
+  },
+  setup(props, { emit }) {
+    return {
+      model: computed({
+        get: () => props.value,
+        set: (v: string) => emit('update:value', v)
+      })
+    }
+  }
+})
+</script>

@@ -1,0 +1,37 @@
+<template>
+  <div class="grid grid-cols-2 gap-4 items-center">
+    <block>
+      <block>
+        <block>
+          <block>
+            <block />
+          </block>
+        </block>
+      </block>
+    </block>
+
+    <v-code lang="html" >
+      {{ code }}
+    </v-code>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, FunctionalComponent, h, withDirectives } from "vue";
+import Block from './ExampleNestedMousedownBlock.vue';
+
+export default defineComponent({
+  components: { Block },
+  setup: () => ({
+    code: `
+<div v-ripple @mousedown.stop>
+  <div v-ripple @mousedown.stop>
+    <div v-ripple @mousedown.stop>
+      ...
+    </div>
+  </div>
+</div>
+    `
+  })
+})
+</script>
