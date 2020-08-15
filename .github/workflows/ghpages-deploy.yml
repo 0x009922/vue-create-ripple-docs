@@ -24,7 +24,7 @@ jobs:
       env:
         PUBLIC_PATH: /some-animations/
 
-    - name: Push ./dist to master:gh-pages
+    - name: Init git repo in 'dist'
       working-directory: ./dist
       run: |
         git config --global user.email "${GITHUB_ACTOR}@https://users.noreply.github.com/"
@@ -32,4 +32,11 @@ jobs:
         git init
         git add --all
         git commit -m "Auto update pages on $(date +'%Y-%m-%d %H:%M:%S')"
-        git push -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages
+
+    - name: Push to master:gh-pages
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: master:gh-pages
+        directory: dist
+        force: true
