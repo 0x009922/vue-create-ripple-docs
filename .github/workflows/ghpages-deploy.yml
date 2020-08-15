@@ -34,9 +34,6 @@ jobs:
         git commit -m "Auto update pages on $(date +'%Y-%m-%d %H:%M:%S')"
 
     - name: Push to master:gh-pages
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: master:gh-pages
-        directory: ./dist
-        force: true
+      working-directory: ./dist
+      run: |
+        git push -f https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git master:gh-pages
