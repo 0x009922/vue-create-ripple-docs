@@ -22,7 +22,7 @@ jobs:
     - name: Build application
       run: npm run build
       env:
-        PUBLIC_PATH: /some-animations/
+        PUBLIC_PATH: /vue-create-ripple-docs/
 
     - name: Init git repo in 'dist'
       working-directory: ./dist
@@ -38,5 +38,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: master:gh-pages
-        directory: dist
+        directory: ./dist
         force: true
