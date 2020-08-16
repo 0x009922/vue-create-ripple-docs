@@ -12,7 +12,7 @@
 
           <div
             class="text-gray-600"
-          >Гибкий инструментарий для создания Ripple(TODO - плавает)-эффекта в Vue 3.</div>
+          >Гибкий инструментарий для создания <floating-chars word="Ripple-эффекта" /> в Vue 3.</div>
 
           <hr>
 
@@ -73,7 +73,7 @@
                 Изменение длительности и функции плавности
               </contents-header>
 
-              <p>Иногда хочется помедленнее... иногда побыстрее. А иногда странно.</p>
+              <p>Иногда хочется помедленнее... иногда побыстрее, а иногда <floating-chars word="странно" duration="1.5" delay="0.15"/>.</p>
 
               <example-easings-durations />
             </v-section>
@@ -216,6 +216,7 @@ import { ContentsContainer, ContentsRenderer, ContentsHeader } from './component
 import { I18n, I18nContainer } from './components/I18n';
 import LanguagePicker from './components/TheLanguagePicker.vue';
 import Installation from './components/Installation.vue';
+import FloatingChars from './components/FloatingChars.vue';
 
 export default defineComponent({
   components: {
@@ -236,7 +237,8 @@ export default defineComponent({
     I18n,
     I18nContainer,
     LanguagePicker,
-    Installation
+    Installation,
+    FloatingChars
   },
   setup() {
     const languages = ['ru', 'en'];
