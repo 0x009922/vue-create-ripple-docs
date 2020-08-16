@@ -29,27 +29,27 @@
 import { createRippleDirective } from 'vue-create-ripple';
 import { defineComponent, Directive } from 'vue';
 
-// createDirective()
+const colors = [
+  'purple',
+  'indigo',
+  'blue',
+  'green',
+  'yellow',
+  'orange',
+  'red'
+];
 
-// red orange yellow green blue indigo purple
-const rainbow = `red
-orange
-yellow
-green
-blue
-indigo
-purple`.split(/\s+/m).reverse();
-
-const directives: Record<string, Directive> = Object.fromEntries(
-  rainbow.map((color, i) => {
-    const name = `ripple-${color}`;
-    const ripple = createRippleDirective({
+const directives = colors.reduce(
+  (prev, color, i) => {
+    prev[`ripple-${color}`] = createRippleDirective({
       appearDuration: `${0.8 + i * 0.3}s`,
       disappearDuration: `${0.3 + i * 0.1}s`,
       class: `bg-${color}-500`
     });
-    return [name, ripple];
-  })
+
+    return prev;
+  },
+  {} as Record<string, Directive>
 );
 
 export default defineComponent({
@@ -57,24 +57,27 @@ export default defineComponent({
   setup: () => ({
     code: {
       js: `
-const rainbow = \`red
-orange
-yellow
-green
-blue
-indigo
-purple\`.split(/\s+/m).reverse();
+const colors = [
+  'purple',
+  'indigo',
+  'blue',
+  'green',
+  'yellow',
+  'orange',
+  'red'
+];
 
-const directives = Object.fromEntries(
-  rainbow.map((color, i) => {
-    const name = \`ripple-\${color}\`;
-    const ripple = createRippleDirective({
+const directives = colors.reduce(
+  (prev, color, i) => {
+    prev[\`ripple-\${color}\`] = createRippleDirective({
       appearDuration: \`\${0.8 + i * 0.3}s\`,
       disappearDuration: \`\${0.3 + i * 0.1}s\`,
       class: \`bg-\${color}-500\`
     });
-    return [name, ripple];
-  })
+
+    return prev;
+  },
+  {}
 );
 
 export default defineComponent({
