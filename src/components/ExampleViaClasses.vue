@@ -1,10 +1,10 @@
 <template>
   <div class="space-y-4">
-    <div class="flex space-x-2">
+    <div class="grid gap-4 sm:grid-cols-5">
       <template v-for="color in colors">
         <div
           v-ripple="{ class: `bg-${color}-500 opacity-50` }"
-          :class="`bg-${color}-200 text-${color}-600 text-center p-3 flex-1 cursor-pointer select-none rounded`"
+          :class="`bg-${color}-200 text-${color}-600 text-center p-3 cursor-pointer select-none rounded`"
         >
           {{ color }}
         </div>

@@ -13,12 +13,12 @@
       Хочу радугу!
     </div>
 
-    <div class="grid grid-cols-5 gap-4">
-      <v-code lang="js" class="col-span-3">
+    <div class="grid md:grid-cols-5 gap-4">
+      <v-code lang="js" class="md:col-span-3 min-w-0">
         {{ code.js }}
       </v-code>
 
-      <v-code lang="html" class="col-span-2">
+      <v-code lang="html" class="md:col-span-2 min-w-0">
         {{ code.html }}
       </v-code>
     </div>

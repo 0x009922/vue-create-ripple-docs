@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, computed, inject, ref } from "vue";
-import useContents from "src/tools/use-contents";
+import useContents from "./use-contents";
 import { ProvideSymbol } from './shared';
 
 export default defineComponent({
@@ -39,10 +39,10 @@ export default defineComponent({
 
     const textClass = computed(() => {
       if (props.level2) {
-        return 'text-2xl'
+        return 'text-xl  md:text-2xl'
       }
 
-      return 'text-3xl'
+      return 'text-2xl md:text-3xl'
     });
 
     return {

@@ -2,7 +2,7 @@
   <div class="fixed right-0 top-0 p-4 select-none z-10">
     <select
       v-model="model"
-      class="p-1 uppercase elevation-2 rounded"
+      class="p-1 uppercase elevation-2 rounded bg-white"
     >
       <option
         v-for="op in options"

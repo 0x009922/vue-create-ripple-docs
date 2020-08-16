@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-cols-2 gap-4">
+  <div class="grid md:grid-cols-2 gap-4">
     <div
-      class="border rounded cursor-pointer select-none border-green-300 p-8 grid grid-cols-3 gap-8"
+      class="border rounded cursor-pointer select-none border-green-300 p-8 grid sm:grid-cols-3 gap-8"
       v-ripple.self="{
         class: 'bg-green-500 opacity-25',
         appearDuration: '2s',
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <v-code lang="html">
+    <v-code lang="html" class="min-w-0">
       {{ code }}
     </v-code>
   </div>

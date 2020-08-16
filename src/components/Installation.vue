@@ -3,15 +3,19 @@
     Сперва надо установить сам пакет:
   </p>
 
-  <div class="grid grid-cols-2 row-gap-2 col-gap-4">
-    <span>npm</span>
-    <span>yarn</span>
-    <v-code>
-      npm install vue-create-ripple
-    </v-code>
-    <v-code>
-      yarn add vue-create-ripple
-    </v-code>
+  <div class="grid gap-4 md:grid-cols-2">
+    <div class="space-y-2">
+      <span>npm</span>
+      <v-code>
+        npm install vue-create-ripple
+      </v-code>
+    </div>
+    <div class="space-y-2">
+      <span>yarn</span>
+      <v-code>
+        yarn add vue-create-ripple
+      </v-code>
+    </div>
   </div>
 
   <p>

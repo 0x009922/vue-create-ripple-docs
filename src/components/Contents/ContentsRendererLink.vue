@@ -9,7 +9,7 @@ const Link: FunctionalComponent<LinkProps> = (props, { slots }) => {
   return h('li', {}, [
     h('a', {
       href: `#${props.id}`,
-      class: 'inline-block text-blue-600 visited:text-purple-600 hover:pl-1 transition-all duration-100 ease-md-standard'
+      class: 'text-blue-600 visited:text-purple-600 hover:pl-1 transition-all duration-100 ease-md-standard'
     }, slots)
   ])
 }

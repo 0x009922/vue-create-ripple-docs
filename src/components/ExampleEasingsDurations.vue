@@ -1,34 +1,36 @@
 <template>
-  <div class="example-easings-durations">
-    <block
-      v-ripple="{
-        appearDuration: '10s',
-        disappearDuration: '5s',
-      }"
-    >Ме-е-ед-ле-н-но</block>
+  <div class="space-y-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      <block
+        v-ripple="{
+          appearDuration: '10s',
+          disappearDuration: '5s',
+        }"
+      >Ме-е-ед-ле-н-но</block>
+      <v-code lang="html" class="min-w-0">{{ slow }}</v-code>
+    </div>
 
-    <v-code lang="html">{{ slow }}</v-code>
+    <div class="grid gap-4 md:grid-cols-2">
+      <block
+        v-ripple="{
+          appearDuration: '.4s',
+          disappearDuration: '.2s',
+        }"
+      >Быстр-р-ро!</block>
+      <v-code lang="html" class="min-w-0">{{ fast }}</v-code>
+    </div>
 
-    <block
-      v-ripple="{
-        appearDuration: '.4s',
-        disappearDuration: '.2s',
-      }"
-    >Быстр-р-ро!</block>
+    <div class="grid gap-4 md:grid-cols-2">
+      <block
+        v-ripple="{
+          appearEasing: 'steps(7)',
+          disappearDuration: '1.5s',
+        }"
+      >Будто бы глючно</block>
+      <v-code lang="html" class="min-w-0">{{ epileptic}}</v-code>
+    </div>
 
-    <v-code lang="html">{{ fast }}</v-code>
-
-    <block
-      class="bumba"
-      v-ripple="{
-        appearEasing: 'steps(7)',
-        disappearDuration: '1.5s',
-      }"
-    >Будто бы глючно</block>
-
-    <v-code lang="html">{{ epileptic}}</v-code>
-
-    <div class="col-span-2 grid grid-cols-4 gap-4">
+    <div class="grid gap-4 md:grid-cols-3">
       <block
         v-ripple="{
           appearEasing: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
@@ -39,7 +41,7 @@
         }"
       >Эластично</block>
 
-      <v-code lang="html" class="col-span-3">{{ elastic }}</v-code>
+      <v-code lang="html" class="md:col-span-2 max-w-full min-w-0">{{ elastic }}</v-code>
     </div>
   </div>
 </template>
@@ -58,8 +60,7 @@ export default defineComponent({
       h(
         "div",
         mergeProps(attrs, {
-          class:
-            "example-easings-durations__block",
+          class: "p-8 text-center flex items-center justify-center cursor-pointer select-none rounded bg-indigo-200 text-indigo-600",
         }),
         slots
       ),
@@ -116,10 +117,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="sass">
-.example-easings-durations
-  @apply grid grid-cols-2 gap-4
-  &__block
-    @apply p-4 flex items-center justify-center cursor-pointer select-none rounded bg-indigo-200 text-indigo-600
-</style>

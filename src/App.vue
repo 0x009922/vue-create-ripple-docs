@@ -1,14 +1,14 @@
 <template>
   <i18n-container :lang="lang">
     <contents-container>
-      <main class="max-w-screen-md mx-auto px-4 pb-6">
+      <main class="max-w-screen-md overflow-hidden mx-auto p-4">
         <language-picker
           v-model:value="lang"
           :options="languages"
         />
 
         <article class="space-y-6">
-          <h1 class="text-6xl font-mono">vue-create-ripple</h1>
+          <h1 class="text-2xl md:text-5xl font-mono">vue-create-ripple</h1>
 
           <div
             class="text-gray-600"

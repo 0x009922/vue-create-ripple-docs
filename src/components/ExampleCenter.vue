@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-4">
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid md:grid-cols-3 gap-4">
       <but v-local-ripple>
         Кнопка без центрирования
       </but>
@@ -26,7 +26,7 @@ import { createRippleDirective } from "vue-create-ripple";
 
 const But: FunctionalComponent = (props, { slots, attrs }) => {
   return h('div', mergeProps(attrs, {
-    class: 'rounded bg-orange-200 text-orange-600 cursor-pointer select-none p-2 text-center'
+    class: 'rounded bg-orange-200 text-orange-600 cursor-pointer select-none p-3 text-center'
   }), slots)
 }
 

@@ -31,11 +31,11 @@ const component: FunctionalComponent<CodeProps> = (props, { slots }) => {
     })
     : contentText;
 
-  const langBanner = props.lang
-    ? h('span', {
-      class: 'absolute top-0 right-0 p-2 font-sans'
-    }, [props.lang])
-    : null
+  // const langBanner = props.lang
+  //   ? h('span', {
+  //     class: 'absolute top-0 right-0 p-2 font-sans'
+  //   }, [props.lang])
+  //   : null
 
   // if (props.lang) {
   //   return h('pre', {
@@ -48,8 +48,8 @@ const component: FunctionalComponent<CodeProps> = (props, { slots }) => {
     class: 'v-code'
   }, [
     h('pre', {
-      class: 'h-full p-2 shadow-inner relative bg-gray-100 text-sm rounded'
-    }, [content, langBanner])
+      class: 'h-full p-2 shadow-inner overflow-auto relative bg-gray-100 text-sm rounded'
+    }, [content])
   ])
 }
 
