@@ -19,6 +19,6 @@
   },
   "dependencies": {
     "prismjs": "^1.21.0",
-    "vue-create-ripple": "^0.0.4"
+    "vue-create-ripple": "^0.0.6"
   }
 }
