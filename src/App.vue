@@ -204,15 +204,18 @@
             </contents-header>
 
             <p class="text-gray-600">
-              <i18n>
-                <template #ru>
-                  Скоро будет
-                </template>
-                <template #en>
-                  Soon
-                </template>
-              </i18n>
+              WIP
             </p>
+          </v-section>
+
+          <hr>
+
+          <v-section>
+            <contents-header id="links">
+              Ссылки
+            </contents-header>
+
+            <links />
           </v-section>
         </article>
       </main>
@@ -242,6 +245,7 @@ import ApiCreateDirective from './components/ApiCreateDirective.vue';
 import ApiRipple from './components/ApiRipple.vue';
 import ApiOpts from './components/ApiOpts.vue';
 import ApiModifiers from './components/ApiModifiers.vue';
+import Links from './components/Links.vue';
 
 export default defineComponent({
   components: {
@@ -267,7 +271,8 @@ export default defineComponent({
     ApiCreateDirective,
     ApiRipple,
     ApiOpts,
-    ApiModifiers
+    ApiModifiers,
+    Links
   },
   setup() {
     const languages = ['ru', 'en'];

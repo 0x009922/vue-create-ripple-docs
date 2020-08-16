@@ -6,7 +6,6 @@ export interface VIconProps {
   size: number;
 }
 
-// Не используется
 const VIcon: FunctionalComponent<VIconProps> = (props, { attrs }) => {
   return h(
     'svg',

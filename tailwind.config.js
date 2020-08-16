@@ -16,6 +16,6 @@ module.exports = {
     opacity: ['responsive', 'hover', 'focus', 'active']
   },
   plugins: [
-    require('tailwindcss-elevation')([])
+    require('tailwindcss-elevation')(['active'])
   ]
 }
