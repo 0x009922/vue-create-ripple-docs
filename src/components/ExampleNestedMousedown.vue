@@ -24,7 +24,7 @@ export default defineComponent({
   components: { Block },
   setup: () => ({
     code: `
-<div v-ripple @mousedown.stop>
+<div v-ripple>
   <div v-ripple @mousedown.stop>
     <div v-ripple @mousedown.stop>
       ...
