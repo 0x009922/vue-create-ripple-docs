@@ -1,5 +1,5 @@
 <script lang="ts">
-import { FunctionalComponent, h } from "vue";
+import { FunctionalComponent, h, resolveComponent } from "vue";
 
 interface LinkProps {
   id: string;
@@ -7,9 +7,9 @@ interface LinkProps {
 
 const Link: FunctionalComponent<LinkProps> = (props, { slots }) => {
   return h('li', {}, [
-    h('a', {
+    h(resolveComponent('v-a'), {
       href: `#${props.id}`,
-      class: 'text-blue-600 visited:text-purple-600 hover:pl-1 transition-all duration-100 ease-md-standard'
+      class: 'hover:pl-1 transition-all duration-100 ease-md-standard'
     }, slots)
   ])
 }

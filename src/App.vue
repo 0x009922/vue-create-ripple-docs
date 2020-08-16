@@ -11,8 +11,8 @@
           <h1 class="text-2xl md:text-5xl font-mono">vue-create-ripple</h1>
 
           <div
-            class="text-gray-600"
-          >Гибкий инструментарий для создания <floating-chars word="Ripple-эффекта" /> в Vue 3.</div>
+            class="text-gray-700"
+          >Гибкий инструментарий для создания <floating-chars word="Ripple-эффекта" /> во Vue 3.</div>
 
           <hr>
 
@@ -163,16 +163,37 @@
               API
             </contents-header>
 
-            <p class="text-gray-600">
-              <i18n>
-                <template #ru>
-                  Скоро будет
-                </template>
-                <template #en>
-                  Soon
-                </template>
-              </i18n>
-            </p>
+            <v-section>
+              <contents-header id="create-directive" level2>
+                <code>createRippleDirective</code>
+              </contents-header>
+
+              <api-create-directive />
+            </v-section>
+
+            <v-section>
+              <contents-header id="default-ripple" level2>
+                <code>Ripple</code>
+              </contents-header>
+
+              <api-ripple />
+            </v-section>
+
+            <v-section>
+              <contents-header id="options" level2>
+                Объект параметров, значения по умолчанию
+              </contents-header>
+
+              <api-opts />
+            </v-section>
+
+            <v-section>
+              <contents-header id="modifiers" level2>
+                Модификаторы
+              </contents-header>
+
+              <api-modifiers />
+            </v-section>
           </v-section>
 
           <hr>
@@ -217,6 +238,10 @@ import { I18n, I18nContainer } from './components/I18n';
 import LanguagePicker from './components/TheLanguagePicker.vue';
 import Installation from './components/Installation.vue';
 import FloatingChars from './components/FloatingChars.vue';
+import ApiCreateDirective from './components/ApiCreateDirective.vue';
+import ApiRipple from './components/ApiRipple.vue';
+import ApiOpts from './components/ApiOpts.vue';
+import ApiModifiers from './components/ApiModifiers.vue';
 
 export default defineComponent({
   components: {
@@ -238,7 +263,11 @@ export default defineComponent({
     I18nContainer,
     LanguagePicker,
     Installation,
-    FloatingChars
+    FloatingChars,
+    ApiCreateDirective,
+    ApiRipple,
+    ApiOpts,
+    ApiModifiers
   },
   setup() {
     const languages = ['ru', 'en'];

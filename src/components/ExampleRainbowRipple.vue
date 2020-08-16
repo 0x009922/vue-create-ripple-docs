@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-4">
     <div
-      class="border rounded flex items-center justify-center p-8 select-none cursor-pointer"
+      class="elevation-2 rounded flex items-center justify-center p-8 select-none cursor-pointer"
       v-ripple-purple
       v-ripple-indigo
       v-ripple-blue

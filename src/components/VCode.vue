@@ -48,7 +48,7 @@ const component: FunctionalComponent<CodeProps> = (props, { slots }) => {
     class: 'v-code'
   }, [
     h('pre', {
-      class: 'h-full p-2 shadow-inner overflow-auto relative bg-gray-100 text-sm rounded'
+      class: 'h-full p-2 shadow-inner overflow-auto relative bg-gray-200 text-sm rounded'
     }, [content])
   ])
 }
