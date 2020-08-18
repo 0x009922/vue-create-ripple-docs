@@ -1,6 +1,13 @@
 <template>
   <p>
-    Сперва надо установить сам пакет:
+    <i18n>
+      <template #ru>
+        Сперва надо установить сам пакет:
+      </template>
+      <template #en>
+        First you need to install the package itself:
+      </template>
+    </i18n>
   </p>
 
   <div class="grid gap-4 md:grid-cols-2">
@@ -19,7 +26,14 @@
   </div>
 
   <p>
-    Затем использовать утилиту <code>createRippleDirective</code>:
+    <i18n>
+      <template #ru>
+        Затем использовать утилиту <code>createRippleDirective</code>:
+      </template>
+      <template #en>
+        Then use the <code>createRippleDirective</code> utility:
+      </template>
+    </i18n>
   </p>
 
   <v-code lang="js">
@@ -27,7 +41,15 @@
   </v-code>
 
   <p>
-    Или использовать готовую директиву с параметрами по умолчанию:
+    <i18n>
+      <template #ru>
+        Или использовать готовую директиву с параметрами по умолчанию:
+      </template>
+      <template #en>
+        Or use a ready-made directive with default parameters:
+      </template>
+    </i18n>
+    
   </p>
 
   <v-code lang="js">
@@ -35,7 +57,14 @@
   </v-code>
 
   <p>
-    Чтобы затем использовать в шаблоне:
+    <i18n>
+      <template #ru>
+        Чтобы затем использовать в шаблоне:
+      </template>
+      <template #en>
+        To then use in a template:
+      </template>
+    </i18n>
   </p>
 
   <v-code lang="html">
@@ -44,22 +73,30 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
+import { useI18n } from './I18n'
 
 export default defineComponent({
   setup() {
+    const { t } = useI18n()
+
     return {
-      codeApp: `
+      codeApp: computed(() => `
 // main
 import { createApp } from 'vue';
 import { createRippleDirective } from 'vue-create-ripple';
 
 const app = createApp();
 
-// Можно указать все необходимые опции по умолчанию, см. API
+// ${
+  t({
+    ru: 'Можно указать все необходимые опции по умолчанию, см. API',
+    en: 'All necessary options can be specified by default, see API'
+  }).value
+}
 const opts = { class: 'my-ripple-class' };
 app.directive('AppRipple', createRippleDirective(opts));
-      `,
+      `),
       codeComponent: `
 // component
 import { defineComponent } from 'vue';

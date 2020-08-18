@@ -3,7 +3,10 @@ import { ProvideI18nSymbol, ProvideValue } from "./shared";
 
 export interface UseI18N {
   <T extends Record<string, string>>(langs: Record<string, T>): {
-    t: ComputedRef<Partial<T>>;
+    current: ComputedRef<Partial<T>>;
+    t: {
+      (map: Record<string, string>): ComputedRef<string | null>
+    }
   } | never
 }
 
@@ -15,15 +18,16 @@ const useI18n: UseI18N = (langs) => {
   }
 
   return {
-    t: readonly(
-      computed(() => {
-        if (i18n.lang) {
-          return langs[i18n.lang] || {}
-        }
+    current: computed(() => {
+      if (i18n.lang) {
+        return langs[i18n.lang] || {}
+      }
 
-        return {};
-      })
-    )
+      return {};
+    }),
+    t: (map) => computed(() => {
+      return i18n.lang ? map[i18n.lang] : null;
+    })
   }
 }
 

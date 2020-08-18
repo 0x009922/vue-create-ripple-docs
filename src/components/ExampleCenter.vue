@@ -2,15 +2,15 @@
   <div class="space-y-4">
     <div class="grid md:grid-cols-3 gap-4">
       <but v-local-ripple>
-        Кнопка без центрирования
+        {{ lang.without }}
       </but>
 
       <but v-local-ripple="{ center: true }">
-        Центрирование через флаг
+        {{ lang.flag }}
       </but>
 
       <but v-local-ripple.center>
-        Или через модификатор
+        {{ lang.modifier }}
       </but>
     </div>
 
@@ -21,8 +21,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, FunctionalComponent, h, mergeProps } from "vue";
+import { defineComponent, FunctionalComponent, h, mergeProps, computed } from "vue";
 import { createRippleDirective } from "vue-create-ripple";
+import { useI18n } from "./I18n";
 
 const But: FunctionalComponent = (props, { slots, attrs }) => {
   return h('div', mergeProps(attrs, {
@@ -34,20 +35,6 @@ const LocalRipple = createRippleDirective({
   class: 'bg-orange-600 opacity-50'
 })
 
-const code = `
-<div v-ripple>
-  Кнопка без центрирования
-</div>
-
-<div v-ripple="{ center: true }">
-  Центрирование через флаг
-</div>
-
-<div v-ripple.center>
-  Или через модификатор
-</div>
-`
-
 export default defineComponent({
   directives: {
     LocalRipple,
@@ -55,6 +42,36 @@ export default defineComponent({
   components: {
     But
   },
-  data: () => ({ code })
+  setup() {
+    const { current: lang } = useI18n({
+      ru: {
+        without: 'Кнопка без центрирования',
+        flag: 'Центрирование через флаг',
+        modifier: 'Или через модификатор'
+      },
+      en: {
+        without: 'No centering',
+        flag: 'Via flag',
+        modifier: 'Via modifier'
+      }
+    });
+
+    return {
+      lang,
+      code: computed(() => `
+<div v-ripple>
+  ${lang.value.without}
+</div>
+
+<div v-ripple="{ center: true }">
+  ${lang.value.flag}
+</div>
+
+<div v-ripple.center>
+  ${lang.value.modifier}
+</div>
+      `)
+    };
+  },
 })
 </script>

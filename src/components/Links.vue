@@ -1,5 +1,5 @@
 <template>
-  <div class="grid gap-4 grid-cols-3">
+  <div class="grid gap-4 md:grid-cols-3">
     <card
       to="https://github.com/LiquidSolid/vue-create-ripple"
       class="flex items-center p-4 space-x-2"
@@ -26,7 +26,14 @@
     >
       <v-icon :path="mdiPencil" class="text-blue-600" fill="currentColor"  />
       <div class="text-lg">
-        Поправить доки
+        <i18n>
+          <template #ru>
+            Поправить доки
+          </template>
+          <template #en>
+            Edit docs
+          </template>
+        </i18n>
       </div>
     </card>
   </div>

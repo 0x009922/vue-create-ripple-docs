@@ -6,8 +6,8 @@
           appearDuration: '10s',
           disappearDuration: '5s',
         }"
-      >Ме-е-ед-ле-н-но</block>
-      <v-code lang="html" class="min-w-0">{{ slow }}</v-code>
+      >{{ lang.slow }}</block>
+      <v-code lang="html" class="min-w-0">{{ code.slow }}</v-code>
     </div>
 
     <div class="grid gap-4 md:grid-cols-2">
@@ -16,8 +16,8 @@
           appearDuration: '.4s',
           disappearDuration: '.2s',
         }"
-      >Быстр-р-ро!</block>
-      <v-code lang="html" class="min-w-0">{{ fast }}</v-code>
+      >{{ lang.fast }}</block>
+      <v-code lang="html" class="min-w-0">{{ code.fast }}</v-code>
     </div>
 
     <div class="grid gap-4 md:grid-cols-2">
@@ -26,8 +26,8 @@
           appearEasing: 'steps(7)',
           disappearDuration: '1.5s',
         }"
-      >Будто бы глючно</block>
-      <v-code lang="html" class="min-w-0">{{ epileptic}}</v-code>
+      >{{ lang.epileptic }}</block>
+      <v-code lang="html" class="min-w-0">{{ code.epileptic }}</v-code>
     </div>
 
     <div class="grid gap-4 md:grid-cols-3">
@@ -39,16 +39,17 @@
           disappearDuration: '.8s',
           radius: 56,
         }"
-      >Эластично</block>
+      >{{ lang.elastic }}</block>
 
-      <v-code lang="html" class="md:col-span-2 max-w-full min-w-0">{{ elastic }}</v-code>
+      <v-code lang="html" class="md:col-span-2 max-w-full min-w-0">{{ code.elastic }}</v-code>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { h, mergeProps, defineComponent } from "vue";
+import { h, mergeProps, defineComponent, computed } from "vue";
 import { createRippleDirective } from "vue-create-ripple";
+import { useI18n } from "./I18n";
 
 export default defineComponent({
   directives: {
@@ -66,41 +67,56 @@ export default defineComponent({
       ),
   },
   setup() {
+    const { current: lang } = useI18n({
+      ru: {
+        slow: 'Ме-е-ед-ле-н-но-о-о-о..',
+        fast: 'Быстр-р-ро!',
+        epileptic: 'Будто бы глючно',
+        elastic: 'Эластично',
+      },
+      en: {
+        slow: 'Slo-o-o-o-ow...',
+        fast: 'Blazing fast!',
+        epileptic: 'Glitch-like',
+        elastic: 'Elastic',
+      }
+    });
+
     return {
-      slow: `
+      lang,
+      code: computed(() => {
+        return {
+          slow: `
 <div
   v-ripple="{
     appearDuration: '10s',
     disappearDuration: '5s',
   }"
 >
-  Ме-е-ед-ле-н-но
+  ${lang.value.slow}
 </div>
-`,
-
-      fast: `
+          `,
+          fast: `
 <div
   v-ripple="{
     appearDuration: '.3s',
     disappearDuration: '.2s',
   }"
 >
-  Быстр-р-ро!
+  ${lang.value.fast}
 </div>
-`,
-
-      epileptic: `
+          `,
+          epileptic: `
 <div
   v-ripple="{
     appearEasing: 'steps(7)',
     disappearDuration: '1.5s',
   }"
 >
-  Будто бы глючно
+  ${lang.value.epileptic}
 </div>
-`,
-
-      elastic: `
+          `,
+          elastic: `
 <div
   v-ripple="{
     appearEasing: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
@@ -110,9 +126,11 @@ export default defineComponent({
     radius: 56,
   }"
 >
-  Эластично
+  ${lang.value.elastic}
 </div>
-`,
+          `
+        }
+      }),
     };
   },
 });

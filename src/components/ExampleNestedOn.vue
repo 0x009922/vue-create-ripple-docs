@@ -1,12 +1,20 @@
 <script lang="ts">
 import Card from './ExampleNestedOnOffCard.vue';
-import { defineComponent, FunctionalComponent, h } from 'vue';
+import { defineComponent, h } from 'vue';
+import { useI18n } from './I18n';
 
-const Component: FunctionalComponent = () => h(Card, {
-  noNested: true
-}, {
-  default: () => 'Здесь проблем с вложенностью нет'
-});
+export default defineComponent({
+  setup() {
+    const { t } = useI18n({});
 
-export default Component;
+    return () => h(Card, {
+      noNested: true
+    }, {
+      default: () => t({
+        ru: 'Здесь проблем с вложенностью нет',
+        en: 'There are no problems with nesting here'
+      }).value
+    })
+  }
+})
 </script>

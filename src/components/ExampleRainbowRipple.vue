@@ -10,7 +10,7 @@
       v-ripple-orange
       v-ripple-red
     >
-      Хочу радугу!
+      {{ lang.wannaRainbow }}
     </div>
 
     <div class="grid md:grid-cols-5 gap-4">
@@ -27,7 +27,8 @@
 
 <script lang="ts">
 import { createRippleDirective } from 'vue-create-ripple';
-import { defineComponent, Directive } from 'vue';
+import { defineComponent, Directive, computed } from 'vue';
+import { useI18n } from './I18n';
 
 const colors = [
   'purple',
@@ -52,11 +53,7 @@ const directives = colors.reduce(
   {} as Record<string, Directive>
 );
 
-export default defineComponent({
-  directives,
-  setup: () => ({
-    code: {
-      js: `
+const jsCode = () => `
 const colors = [
   'purple',
   'indigo',
@@ -83,8 +80,9 @@ const directives = colors.reduce(
 export default defineComponent({
   directives
 });
-      `,
-      html: `
+`;
+
+const htmlCode = (wanna: unknown) => `
 <div
   v-ripple-purple
   v-ripple-indigo
@@ -94,11 +92,30 @@ export default defineComponent({
   v-ripple-orange
   v-ripple-red
 >
-  Хочу радугу!
+  ${wanna}
 </div>
-      `
+`
+
+export default defineComponent({
+  directives,
+  setup() {
+    const { current: lang } = useI18n({
+      ru: {
+        wannaRainbow: 'Хочу радугу!'
+      },
+      en: {
+        wannaRainbow: 'I wanna rainbow!'
+      }
+    });
+
+    return {
+      lang,
+      code: computed(() => ({
+        js: jsCode(),
+        html: htmlCode(lang.value.wannaRainbow)
+      }))
     }
-  })
+  }
 })
 
 </script>

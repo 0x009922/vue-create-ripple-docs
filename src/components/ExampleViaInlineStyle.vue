@@ -9,7 +9,7 @@
         radius: 50
       }"
     >
-      Жмякни
+      {{ currentLang.click }}
     </div>
 
     <v-code lang="html">
@@ -19,10 +19,21 @@
 </template>
 
 <script lang="ts">
+import { computed } from 'vue';
+import { useI18n } from './I18n';
 
-const colors = ['red', 'orange', 'green', 'blue', 'purple'];
+export default {
+  setup() {
+    const { current } = useI18n({
+      ru: {
+        click: 'Жмякни'
+      },
+      en: {
+        click: 'Click'
+      }
+    });
 
-const code = `
+    const code = computed(() =>  `
 <div
   v-ripple="{
     circleStyle: {
@@ -31,14 +42,13 @@ const code = `
     radius: 50
   }"
 >
-  Жмякни
+  ${current.value.click}
 </div>
-`
+    `)
 
-export default {
-  setup() {
     return {
-      code
+      code,
+      currentLang: current
     }
   }
 }

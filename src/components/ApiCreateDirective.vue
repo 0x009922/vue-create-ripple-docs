@@ -1,8 +1,16 @@
 <template>
   <p>
-    Основной инструмент пакета, который создаёт Ripple-директиву
-    с какими-то параметрами по умолчанию. Эти параметры можно потом будет перезаписать при
-    самом использовании созданной директиве.
+    <i18n>
+      <template #ru>
+        Основной инструмент пакета, который создаёт Ripple-директиву
+        с какими-то параметрами по умолчанию. Эти параметры можно потом будет перезаписать при
+        самом использовании созданной директиве.
+      </template>
+      <template #en>
+        The main tool of the package that creates a Ripple directive with some default parameters.
+        These parameters can then be overwritten when using the created directive.
+      </template>
+    </i18n>
   </p>
 
   <v-code lang="js">
@@ -11,22 +19,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
+import { useI18n } from "./I18n";
 
-export default defineComponent({
-  setup() {
-    return {
-      code: `
+const codeGen = (
+  app: unknown,
+  comp: unknown,
+  ps: unknown
+) => `
 import { createApp, defineComponent } from 'vue';
 import { createRippleDirective } from 'vue-create-ripple';
 
-// Можно установить глобально в приложении
+// ${app}
 createApp()
   .directive('ripple', createRippleDirective({
     class: 'black-ripple'
   }));
 
-// Можно установить локально в компоненте
+// ${comp}
 const Component = defineComponent({
   directives: {
     CenterRipple: createRippleDirective({
@@ -35,8 +45,29 @@ const Component = defineComponent({
   }
 })
 
-// Подробнее об объекте опций см. ниже 
-      `
+// ${ps}`;
+
+export default defineComponent({
+  setup() {
+    const { current } = useI18n({
+      ru: {
+        app: 'Можно установить глобально в приложении',
+        comp: 'Можно установить локально в компоненте',
+        ps: 'Подробнее об объекте опций см. ниже'
+      },
+      en: {
+        app: 'Can be installed globally in the application',
+        comp: 'Can be installed locally in a component',
+        ps: 'See below for more on the options object'
+      }
+    });
+
+    return {
+      code: computed(() => codeGen(
+        current.value.app,
+        current.value.comp,
+        current.value.ps
+      ))
     }
   }
 })
