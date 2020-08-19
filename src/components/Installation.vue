@@ -49,11 +49,10 @@
         Or use a ready-made directive with default parameters:
       </template>
     </i18n>
-    
   </p>
 
   <v-code lang="js">
-    {{  codeComponent }}
+    {{ codeComponent }}
   </v-code>
 
   <p>

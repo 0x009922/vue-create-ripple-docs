@@ -19,6 +19,11 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   inheritAttrs: false,
-  props: ['to']
+  props: {
+    to: {
+      type: String,
+      default: null
+    }
+  }
 })
 </script>

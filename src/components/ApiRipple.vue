@@ -12,7 +12,9 @@
     </i18n>
   </p>
 
-  <v-code lang="js">{{ code }}</v-code>
+  <v-code lang="js">
+    {{ code }}
+  </v-code>
 </template>
 
 <script lang="ts">

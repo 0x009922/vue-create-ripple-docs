@@ -1,7 +1,6 @@
 <template>
   <div class="space-y-4">
     <div
-      class="elevation-2 rounded flex items-center justify-center p-8 select-none cursor-pointer"
       v-ripple-purple
       v-ripple-indigo
       v-ripple-blue
@@ -9,16 +8,23 @@
       v-ripple-yellow
       v-ripple-orange
       v-ripple-red
+      class="elevation-2 rounded flex items-center justify-center p-8 select-none cursor-pointer"
     >
       {{ lang.wannaRainbow }}
     </div>
 
     <div class="grid md:grid-cols-5 gap-4">
-      <v-code lang="js" class="md:col-span-3 min-w-0">
+      <v-code
+        lang="js"
+        class="md:col-span-3 min-w-0"
+      >
         {{ code.js }}
       </v-code>
 
-      <v-code lang="html" class="md:col-span-2 min-w-0">
+      <v-code
+        lang="html"
+        class="md:col-span-2 min-w-0"
+      >
         {{ code.html }}
       </v-code>
     </div>

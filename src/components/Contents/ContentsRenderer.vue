@@ -9,7 +9,10 @@
         v-if="x.children"
         class="list-circle list-inside ml-6 space-y-2"
       >
-        <contents-link v-for="y in x.children" :id="y.id">
+        <contents-link
+          v-for="y in x.children"
+          :id="y.id"
+        >
           <component :is="y.render" />
         </contents-link>
       </ul>

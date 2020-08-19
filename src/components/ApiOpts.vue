@@ -5,7 +5,11 @@
       target="_blank"
     >
       src/ripple-options.ts
-      <v-icon :path="mdiOpenInNew" size="16" fill="currentColor" />
+      <v-icon
+        :path="mdiOpenInNew"
+        size="16"
+        fill="currentColor"
+      />
     </v-a>.
   </p>
 </template>

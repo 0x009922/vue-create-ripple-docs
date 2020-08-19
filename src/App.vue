@@ -8,7 +8,9 @@
         />
 
         <article class="space-y-6">
-          <h1 class="text-2xl md:text-5xl font-mono">vue-create-ripple</h1>
+          <h1 class="text-2xl md:text-5xl font-mono">
+            vue-create-ripple
+          </h1>
 
           <div
             class="text-gray-700"
@@ -16,11 +18,17 @@
             <i18n>
               <template #ru>
                 Гибкий инструментарий для создания
-                <floating-chars delay="0.12" word="Ripple-эффекта" /> во Vue 3.
+                <floating-chars
+                  delay="0.12"
+                  word="Ripple-эффекта"
+                /> во Vue 3.
               </template>
               <template #en>
                 Flexible toolkit for creating
-                <floating-chars delay="0.12" word="Ripple" /> effect in Vue 3.
+                <floating-chars
+                  delay="0.12"
+                  word="Ripple"
+                /> effect in Vue 3.
               </template>
             </i18n>
           </div>
@@ -74,7 +82,10 @@
             </contents-header>
 
             <v-section>
-              <contents-header id="basic" level2>
+              <contents-header
+                id="basic"
+                level2
+              >
                 <i18n>
                   <template #ru>
                     Базовое применение
@@ -112,7 +123,10 @@
               <example-via-inline-style />
             </v-section>
             <v-section>
-              <contents-header id="easings-durations" level2>
+              <contents-header
+                id="easings-durations"
+                level2
+              >
                 <i18n>
                   <template #ru>
                     Изменение длительности и функции плавности
@@ -128,11 +142,19 @@
                 <i18n>
                   <template #ru>
                     Иногда хочется помедленнее... иногда побыстрее, а иногда
-                    <floating-chars word="странно" duration="1.5" delay="0.15"/>.
+                    <floating-chars
+                      word="странно"
+                      duration="1.5"
+                      delay="0.15"
+                    />.
                   </template>
                   <template #en>
                     Sometimes you want to slow down... sometimes faster, and sometimes
-                    <floating-chars word="weird" duration="1.5" delay="0.15"/>.
+                    <floating-chars
+                      word="weird"
+                      duration="1.5"
+                      delay="0.15"
+                    />.
                   </template>
                 </i18n>
               </p>
@@ -140,7 +162,10 @@
               <example-easings-durations />
             </v-section>
             <v-section>
-              <contents-header id="center" level2>
+              <contents-header
+                id="center"
+                level2
+              >
                 <i18n>
                   <template #ru>
                     Центрирование
@@ -169,7 +194,10 @@
               <example-center />
             </v-section>
             <v-section>
-              <contents-header id="mouseenter-mouseleave" level2>
+              <contents-header
+                id="mouseenter-mouseleave"
+                level2
+              >
                 <i18n>
                   <template #ru>
                     События <code>mouseenter</code> и <code>mouseleave</code>
@@ -199,7 +227,10 @@
               <example-mouse-reenter />
             </v-section>
             <v-section>
-              <contents-header id="nested-ripples" level2>
+              <contents-header
+                id="nested-ripples"
+                level2
+              >
                 <i18n>
                   <template #ru>
                     Вложенные рипплы
@@ -280,7 +311,10 @@
               <example-nested-mousedown />
             </v-section>
             <v-section>
-              <contents-header id="multi-ripples" level2>
+              <contents-header
+                id="multi-ripples"
+                level2
+              >
                 <i18n>
                   <template #ru>
                     Двойные, тройные, etc рипплы
@@ -300,7 +334,6 @@
                     Several directives with different parameters can be attached to one element simultaneously:
                   </template>
                 </i18n>
-                
               </p>
 
               <example-rainbow-ripple />
@@ -315,7 +348,10 @@
             </contents-header>
 
             <v-section>
-              <contents-header id="create-directive" level2>
+              <contents-header
+                id="create-directive"
+                level2
+              >
                 <code>createRippleDirective</code>
               </contents-header>
 
@@ -323,7 +359,10 @@
             </v-section>
 
             <v-section>
-              <contents-header id="default-ripple" level2>
+              <contents-header
+                id="default-ripple"
+                level2
+              >
                 <code>Ripple</code>
               </contents-header>
 
@@ -331,7 +370,10 @@
             </v-section>
 
             <v-section>
-              <contents-header id="options" level2>
+              <contents-header
+                id="options"
+                level2
+              >
                 <i18n>
                   <template #ru>
                     Объект параметров, значения по умолчанию
@@ -346,7 +388,10 @@
             </v-section>
 
             <v-section>
-              <contents-header id="modifiers" level2>
+              <contents-header
+                id="modifiers"
+                level2
+              >
                 <i18n>
                   <template #ru>
                     Модификаторы
@@ -403,7 +448,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, FunctionalComponent, h, provide, ref, watchEffect } from "vue";
+import { defineComponent } from "vue";
 import VSection from "./components/VSection.vue";
 import ExampleViaClasses from "./components/ExampleViaClasses.vue";
 import ExampleViaInlineStyle from "./components/ExampleViaInlineStyle.vue";

@@ -1,6 +1,6 @@
 <template>
   <h2 :class="textClass">
-    <a :id="actualId"></a>
+    <a :id="actualId" />
     <slot />
   </h2>
 </template>

@@ -7,7 +7,9 @@
       <option
         v-for="op in options"
         :value="op"
-      >{{ op }}</option>
+      >
+        {{ op }}
+      </option>
     </select> 
   </div>
 </template>

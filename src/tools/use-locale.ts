@@ -1,11 +1,15 @@
-import { ref, watchEffect, watch } from "vue";
+import { ref, watchEffect, Ref } from "vue";
 
 export interface UseLocaleOptions {
   available: string[];
   default: string;
 }
 
-export default function useLocale(opts: UseLocaleOptions) {
+export interface UseLocaleReturn {
+  lang: Ref<string>;
+}
+
+export default function useLocale(opts: UseLocaleOptions): UseLocaleReturn {
   const KEY = 'locale';
   const initial = localStorage.getItem(KEY);
 

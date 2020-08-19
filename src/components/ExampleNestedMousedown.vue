@@ -10,7 +10,10 @@
       </block>
     </block>
 
-    <v-code lang="html" class="min-w-0">
+    <v-code
+      lang="html"
+      class="min-w-0"
+    >
       {{ code }}
     </v-code>
   </div>

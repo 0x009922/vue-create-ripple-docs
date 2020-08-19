@@ -1,8 +1,8 @@
 <template>
   <div class="flex space-x-4 items-center justify-center">
     <div
-      :class="[classes]"
       v-ripple="{ class: 'bg-white opacity-25' }"
+      :class="[classes]"
     >
       Ripple
     </div>

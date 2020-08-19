@@ -14,7 +14,11 @@
       to="https://www.npmjs.com/package/vue-create-ripple"
       class="flex items-center p-4 space-x-2"
     >
-      <v-icon :path="mdiNpm" class="text-red-600" fill="currentColor" />
+      <v-icon
+        :path="mdiNpm"
+        class="text-red-600"
+        fill="currentColor"
+      />
       <div class="text-lg">
         NPM
       </div>
@@ -24,7 +28,11 @@
       to="https://github.com/LiquidSolid/vue-create-ripple-docs"
       class="flex items-center p-4 space-x-2"
     >
-      <v-icon :path="mdiPencil" class="text-blue-600" fill="currentColor"  />
+      <v-icon
+        :path="mdiPencil"
+        class="text-blue-600"
+        fill="currentColor"
+      />
       <div class="text-lg">
         <i18n>
           <template #ru>

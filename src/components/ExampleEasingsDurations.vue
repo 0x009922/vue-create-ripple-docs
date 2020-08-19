@@ -6,8 +6,15 @@
           appearDuration: '10s',
           disappearDuration: '5s',
         }"
-      >{{ lang.slow }}</block>
-      <v-code lang="html" class="min-w-0">{{ code.slow }}</v-code>
+      >
+        {{ lang.slow }}
+      </block>
+      <v-code
+        lang="html"
+        class="min-w-0"
+      >
+        {{ code.slow }}
+      </v-code>
     </div>
 
     <div class="grid gap-4 md:grid-cols-2">
@@ -16,8 +23,15 @@
           appearDuration: '.4s',
           disappearDuration: '.2s',
         }"
-      >{{ lang.fast }}</block>
-      <v-code lang="html" class="min-w-0">{{ code.fast }}</v-code>
+      >
+        {{ lang.fast }}
+      </block>
+      <v-code
+        lang="html"
+        class="min-w-0"
+      >
+        {{ code.fast }}
+      </v-code>
     </div>
 
     <div class="grid gap-4 md:grid-cols-2">
@@ -26,8 +40,15 @@
           appearEasing: 'steps(7)',
           disappearDuration: '1.5s',
         }"
-      >{{ lang.epileptic }}</block>
-      <v-code lang="html" class="min-w-0">{{ code.epileptic }}</v-code>
+      >
+        {{ lang.epileptic }}
+      </block>
+      <v-code
+        lang="html"
+        class="min-w-0"
+      >
+        {{ code.epileptic }}
+      </v-code>
     </div>
 
     <div class="grid gap-4 md:grid-cols-3">
@@ -39,9 +60,16 @@
           disappearDuration: '.8s',
           radius: 56,
         }"
-      >{{ lang.elastic }}</block>
+      >
+        {{ lang.elastic }}
+      </block>
 
-      <v-code lang="html" class="md:col-span-2 max-w-full min-w-0">{{ code.elastic }}</v-code>
+      <v-code
+        lang="html"
+        class="md:col-span-2 max-w-full min-w-0"
+      >
+        {{ code.elastic }}
+      </v-code>
     </div>
   </div>
 </template>
