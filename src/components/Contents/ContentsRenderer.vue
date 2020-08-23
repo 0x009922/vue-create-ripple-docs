@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject, h } from "vue";
+import { defineComponent, inject } from "vue";
 import useContents from "./use-contents";
 import ContentsLink from './ContentsRendererLink.vue';
 import { ProvideSymbol } from './shared';

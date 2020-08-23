@@ -10,7 +10,7 @@ export default defineComponent({
     }
   },
   setup(props, { slots }) {
-    const providedLanguage = computed<string | null>(() => props.lang);
+    // const providedLanguage = computed<string | null>(() => props.lang);
     const provideValue = reactive({
       lang: computed<string | null>(() => props.lang)
     })

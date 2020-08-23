@@ -1,4 +1,4 @@
-import { inject, ComputedRef, readonly, computed } from "vue";
+import { inject, ComputedRef, computed } from "vue";
 import { ProvideI18nSymbol, ProvideValue } from "./shared";
 
 export interface UseI18N {

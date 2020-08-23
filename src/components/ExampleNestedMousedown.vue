@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, FunctionalComponent, h, withDirectives } from "vue";
+import { defineComponent } from "vue";
 import Block from './ExampleNestedMousedownBlock.vue';
 
 export default defineComponent({

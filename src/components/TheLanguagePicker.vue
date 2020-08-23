@@ -15,10 +15,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, PropType, computed } from "vue";
+import { defineComponent, PropType, computed } from "vue";
 
 export default defineComponent({
-  emits: ['update:value'],
   props: {
     value: {
       type: String,
@@ -29,6 +28,7 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['update:value'],
   setup(props, { emit }) {
     return {
       model: computed({

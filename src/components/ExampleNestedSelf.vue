@@ -12,7 +12,7 @@
         v-ripple="{
           class: 'bg-green-500 opacity-50'
         }"
-        class="bg-green-200 text-green-700 p-4 rounded text-center"
+        class="bg-green-200 text-green-700 p-4 rounded flex items-center justify-center"
       >
         child
       </div>
