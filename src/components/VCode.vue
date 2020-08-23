@@ -1,7 +1,11 @@
 <script lang="ts">
-import { defineComponent, h, FunctionalComponent } from 'vue';
+import { h, FunctionalComponent } from 'vue';
 import Prism from 'prismjs';
-import '../assets/prism-github.scss';
+import 'prismjs/components/prism-typescript.js'
+import '../assets/prism-tommorow.scss';
+
+// console.log(loadLanguages);
+// loadLanguages(['ts'])
 
 function warn(...args: unknown[]) {
   console.warn('[VCode]', ...args);
@@ -31,11 +35,11 @@ const component: FunctionalComponent<CodeProps> = (props, { slots }) => {
     })
     : contentText;
 
-  // const langBanner = props.lang
-  //   ? h('span', {
-  //     class: 'absolute top-0 right-0 p-2 font-sans'
-  //   }, [props.lang])
-  //   : null
+  const langBanner = props.lang
+    ? h('span', {
+      class: 'absolute top-0 right-0 p-2 font-sans'
+    }, [props.lang])
+    : null
 
   // if (props.lang) {
   //   return h('pre', {
@@ -48,8 +52,8 @@ const component: FunctionalComponent<CodeProps> = (props, { slots }) => {
     class: 'v-code'
   }, [
     h('pre', {
-      class: 'h-full p-2 shadow-inner overflow-auto relative bg-gray-200 text-sm rounded'
-    }, [content])
+      class: `h-full p-4 shadow-inner overflow-auto relative text-sm rounded language-`,
+    }, [content, langBanner])
   ])
 }
 
