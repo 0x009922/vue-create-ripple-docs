@@ -349,6 +349,17 @@
 
             <v-section>
               <contents-header
+                id="options"
+                level2
+              >
+                Опции
+              </contents-header>
+
+              <api-opts />
+            </v-section>
+
+            <v-section>
+              <contents-header
                 id="create-directive"
                 level2
               >
@@ -369,9 +380,9 @@
               <api-ripple />
             </v-section>
 
-            <v-section>
+            <!-- <v-section>
               <contents-header
-                id="options"
+                id="options-old"
                 level2
               >
                 <i18n>
@@ -385,7 +396,7 @@
               </contents-header>
 
               <api-opts />
-            </v-section>
+            </v-section> -->
 
             <v-section>
               <contents-header

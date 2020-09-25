@@ -26,6 +26,6 @@
     "@mdi/js": "^5.5.55",
     "prismjs": "^1.21.0",
     "vue": "^3.0.0-rc.5",
-    "vue-create-ripple": "^0.0.6"
+    "vue-create-ripple": "../vue-create-ripple"
   }
 }
